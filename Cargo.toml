@@ -1,0 +1,32 @@
+[package]
+name = "partial-bind"
+version = "0.1.0"
+authors = ["ZXY595 <3303057136@qq.com>"]
+edition = "2024"
+description = "A simple proc-macro library that provides a macro to partial bind function arguments using closures."
+license = "MIT"
+keywords = [
+  "argument",
+  "bind",
+  "binding",
+  "macro",
+  "parameter",
+  "partial-application",
+  "proc-macro",
+]
+repository = "https://github.com/ZXY595/partial-bind"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", default-features = false, features = [
+  "clone-impls",
+  "full",
+  "parsing",
+  "printing",
+  "proc-macro",
+] }
+
