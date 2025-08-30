@@ -8,8 +8,6 @@ license = "MIT"
 keywords = [
   "argument",
   "bind",
-  "binding",
-  "macro",
   "parameter",
   "partial-application",
   "proc-macro",
