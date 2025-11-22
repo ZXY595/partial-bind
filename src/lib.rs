@@ -11,10 +11,10 @@ use syn::{ExprCall, ExprPath, Path, PathSegment};
 /// # Example:
 /// ```rust
 /// fn foo(a: i32, b: i32, c: i32, d: i32) { a + b + c + d }
-/// let bar = bind(foo(1, _, 3, _));
+/// let bar = bind!(foo(1, _, 3, _));
 /// assert_eq!(bar(2, 4), foo(1, 2, 3, 4));
 ///
-/// let baz = bind(foo(_, 2, _, 4));
+/// let baz = bind!(foo(_, 2, _, 4));
 /// assert_eq!(baz(1, 3), foo(1, 2, 3, 4));
 /// ```
 #[proc_macro]
@@ -22,7 +22,7 @@ pub fn bind(input: TokenStream) -> TokenStream {
     let input: proc_macro2::TokenStream = input.into();
     let mut call: ExprCall = syn::parse2(input).unwrap();
 
-    // Token![_] => "_n"
+    // Token![_] => "__n"
     // Expr => Expr,
     let placeholders = call
         .args
